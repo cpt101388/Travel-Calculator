@@ -1,0 +1,36 @@
+#this calculates how far you have left in your trip until arrival
+
+#Need to make sure the program checks for correct input type
+
+import pysnooper
+
+@pysnooper.snoop()
+def get_value(prompt):
+    value = ''
+    
+    while not value.isdigit():
+        value = input(prompt)
+        
+        if value.isdigit():
+            return value
+
+def distance_travelled():
+    mph = get_value('What is the mph? ')
+    time = get_value('How long have you driven for? ')
+    
+    
+    try:
+        current_distance_travelled = int(mph) * int(time)
+    except ValueError:
+        print('Just fuck off!')
+
+def distance_left():
+    try:
+        total_trip_distance = input("How many miles will your journey be: ")
+    except ValueError:
+        pass
+    
+    return total_trip_distance
+
+distance_travelled()
+distance_left()
